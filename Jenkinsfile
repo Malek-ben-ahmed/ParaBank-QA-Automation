@@ -21,7 +21,7 @@ pipeline{
                 bat 'npx playwright test'
             }
         }
-        tage('Publish Test Reports') {
+        stage('Publish Test Reports') {
             steps {
                 archiveArtifacts artifacts: 'playwright-report/**',
                                  allowEmptyArchive: true
