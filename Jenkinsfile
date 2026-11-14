@@ -13,7 +13,7 @@ pipeline{
         }
         stage('install playright browsers'){
             steps{
-                bat 'npx playwright install chromium'
+                bat 'set "PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT=120000" && npx playwright install chromium'
             }
         }
         stage('run tests'){
