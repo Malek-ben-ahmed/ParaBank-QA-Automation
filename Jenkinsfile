@@ -22,11 +22,11 @@ pipeline{
                 bat 'npx playwright test'
             }
         }
-        stage('Publish Test Reports') {
-            steps {
-                archiveArtifacts artifacts: 'playwright-report/**',
-                                 allowEmptyArchive: true
-            }
+        post {
+        always {
+            archiveArtifacts artifacts: 'playwright-report/**',
+                            allowEmptyArchive: true
         }
+       }
     }
 }
